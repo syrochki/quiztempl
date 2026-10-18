@@ -1,0 +1,1 @@
+# Quiz Django + liveview template

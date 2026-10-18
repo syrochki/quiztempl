@@ -1,0 +1,27 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# dev
+.DS_Store
+.idea
+.swp
+.vscode
+.zed
+.mypy_cache
+.ruff_cache
+
+# database
+db/*
+migrations
+.sqlite
+.sqlite3
+db.sqlite3

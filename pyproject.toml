@@ -1,0 +1,71 @@
+[project]
+name = "quiztempl"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Timothy Zykov", email = "syr0chk1@proton.me" }
+]
+requires-python = ">=3.14, <3.15"
+dependencies = [
+    "argon2-cffi>=25.1.0",
+    "channels>=4.3.2",
+    "channels-redis>=4.3.0",
+    "daphne>=4.2.3",
+    "django>=6.1.2",
+    "django-liveview>=2.5.0",
+    "django-stubs-ext>=6.1.2",
+    "redis>=8.1.0",
+    "unidecode>=1.4.0",
+]
+
+[project.scripts]
+quiztempl = "quiztempl.manage:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    { include-group = "lint" },
+    { include-group = "test" },
+]
+lint = [
+    "django-stubs[compatible-mypy]>=6.1.2",
+    "mypy>=2.4.0",
+    "ruff>=0.17.1",
+    "types-channels>=4.3.0.20260518",
+]
+test = [
+    "pytest-django[django]>=4.14.0",
+]
+
+[tool.mypy]
+strict = true
+plugins = ["mypy_django_plugin.main"]
+exclude = [
+    "migrations",
+    ".venv",
+    ".mypy_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+]
+
+[tool.django-stubs]
+django_settings_module = "quiztempl.server.settings"
+
+[tool.ruff]
+exclude = [
+    "migrations",
+    ".venv",
+    ".mypy_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]
