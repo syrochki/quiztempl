@@ -10,11 +10,21 @@ wheels/
 .venv
 .env
 
+# development
 .DS_Store
 .idea
 .swp
 .vscode
 .zed
+.git
+
+# linters
 .mypy_cache
 .ruff_cache
-poetry.lock
+
+# project stuff(docs, license)
+LICENSE
+LICENSE.md
+docs/*
+static
+staticfiles
