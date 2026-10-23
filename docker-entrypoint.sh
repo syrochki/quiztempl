@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 set -o errexit
 
 uv run quiztempl migrate

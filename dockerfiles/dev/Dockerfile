@@ -24,8 +24,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 RUN chmod +x ./docker-entrypoint.sh
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
 
 EXPOSE 8000
 
-CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "quiztempl.server.asgi:application"]
+CMD ["uv", "run", "daphne", "-b", "0.0.0.0", "-p", "8000", "quiztempl.server.asgi:application"]

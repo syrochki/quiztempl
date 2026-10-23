@@ -29,10 +29,12 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 RUN uv run --no-sync quiztempl collectstatic --noinput
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+RUN chmod +x ./docker-entrypoint.sh
+
+ENTRYPOINT ["./docker-entrypoint.sh"]
 
 USER app
 
 EXPOSE 8000
 
-CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "quiztempl.server.asgi:application"]
+CMD ["uv", "run", "daphne", "-b", "0.0.0.0", "-p", "8000", "quiztempl.server.asgi:application"]
