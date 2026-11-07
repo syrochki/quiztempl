@@ -10,9 +10,6 @@ services:
       - path: .env
         required: false
     environment:
-      PYTHONUNBUFFERED: "1"
-      PYTHONDONTWRITEBYTECODE: "1"
-      UV_NO_SYNC: "1"
       VALKEY_URL: redis://valkey:6379/0
     volumes:
       - ./src:/app/src
